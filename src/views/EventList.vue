@@ -10,7 +10,7 @@
 import EventCard from "@/components/EventCard";
 
 export default {
-  name: "Home",
+  name: "EventList",
 
   components: {
     EventCard,
