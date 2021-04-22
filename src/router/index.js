@@ -8,6 +8,12 @@ const routes = [
     component: EventList,
   },
   {
+    path: "/event/:id",
+    props: true,
+    name: "EventDetails",
+    component: () => import("@/views/EventDetails"),
+  },
+  {
     path: "/about",
     name: "About",
     // route level code-splitting

@@ -1,6 +1,5 @@
 <template>
   <div class="events">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
