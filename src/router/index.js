@@ -14,6 +14,11 @@ const routes = [
     component: () => import("@/views/EventDetails"),
   },
   {
+    path: "/event/create",
+    name: "EventCreate",
+    component: () => import("@/views/EventCreate"),
+  },
+  {
     path: "/about",
     name: "About",
     // route level code-splitting
