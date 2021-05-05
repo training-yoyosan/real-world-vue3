@@ -9,7 +9,7 @@ const routes = [
   },
   {
     path: "/event/:id",
-    props: true,
+    props: true, // pass id as prop into the component
     name: "EventDetails",
     component: () => import("@/views/EventDetails"),
   },
