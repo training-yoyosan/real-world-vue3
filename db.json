@@ -71,6 +71,36 @@
           "name": "Mary Gordon"
         }
       ]
+    },
+    {
+      "id": 595374,
+      "category": "",
+      "title": "Test 1",
+      "description": "",
+      "location": "",
+      "date": "2021-05-06T19:29:45.679Z",
+      "time": "12:00",
+      "attendees": []
+    },
+    {
+      "id": 7703400,
+      "category": "education",
+      "title": "Plant trees",
+      "description": "",
+      "location": "Forest",
+      "date": "2021-05-19T19:36:00.000Z",
+      "time": "16:00",
+      "attendees": []
+    },
+    {
+      "id": 2204683,
+      "category": "food",
+      "title": "Plant coconuts",
+      "description": "",
+      "location": "In the jungle",
+      "date": "2021-05-18T19:39:00.000Z",
+      "time": "16:00",
+      "attendees": []
     }
   ]
 }
