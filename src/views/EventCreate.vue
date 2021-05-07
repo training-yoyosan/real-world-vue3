@@ -66,6 +66,7 @@ export default {
     }
 
     return {
+      ...mapState(["user"]),
       event: this.createFreshEventObject(),
       times,
     };
@@ -83,7 +84,7 @@ export default {
       // can be used for top level state
       categs: "categories",
     }),
-    ...mapState(["user", "categories"]),
+    ...mapState(["categories"]),
     getEvent() {
       return this.$store.getters.getEventById;
     },
@@ -92,7 +93,9 @@ export default {
 
   methods: {
     createFreshEventObject() {
-      const user = this.user;
+      const user = this.$store.state.user;
+      // Why is this.user undefined? Because it doesn't exist yet
+      // console.log(this.user);
       const id = Math.floor(Math.random() * 10000000);
 
       return {
