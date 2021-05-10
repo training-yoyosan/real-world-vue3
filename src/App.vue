@@ -4,6 +4,7 @@
     |
     <router-link :to="{ name: 'EventCreate' }">Create</router-link>
   </div>
+  <!-- $route.fullPath reloads the component when the url changes(for pagination) -->
   <router-view :key="$route.fullPath" />
 </template>
 
