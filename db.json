@@ -78,7 +78,7 @@
       "title": "Test 1",
       "description": "",
       "location": "",
-      "date": "2021-05-06T19:29:45.679Z",
+      "date": "2021-05-06",
       "time": "12:00",
       "attendees": []
     },
@@ -88,7 +88,7 @@
       "title": "Plant trees",
       "description": "",
       "location": "Forest",
-      "date": "2021-05-19T19:36:00.000Z",
+      "date": "2021-05-19",
       "time": "16:00",
       "attendees": []
     },
@@ -98,8 +98,64 @@
       "title": "Plant coconuts",
       "description": "",
       "location": "In the jungle",
-      "date": "2021-05-18T19:39:00.000Z",
+      "date": "2021-05-18",
       "time": "16:00",
+      "attendees": []
+    },
+    {
+      "id": 6550683,
+      "category": "nature",
+      "title": "Nature event #1",
+      "description": "",
+      "location": "",
+      "date": "2021-05-07",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 6209378,
+      "category": "",
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "2021-05-07",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 1535756,
+      "user": {
+        "id": "abc123",
+        "name": "Gigi Bingi"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gigi Bingi"
+      },
+      "title": "Housing #1",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "13:00",
+      "attendees": []
+    },
+    {
+      "id": 4004271,
+      "user": {
+        "id": "abc123",
+        "name": "Gigi Bingi"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gigi Bingi"
+      },
+      "title": "Housing #2",
+      "description": "",
+      "location": "",
+      "date": "2021-05-07",
+      "time": "12:00",
       "attendees": []
     }
   ]

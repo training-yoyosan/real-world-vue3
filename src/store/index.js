@@ -19,12 +19,8 @@ export default createStore({
       { id: 3, text: "...", done: true },
       { id: 4, text: "...", done: false },
     ],
-    events: [
-      { id: 1, text: "...", organizer: "..." },
-      { id: 2, text: "...", organizer: "..." },
-      { id: 3, text: "...", organizer: "..." },
-      { id: 4, text: "...", organizer: "..." },
-    ],
+    events: [],
+    eventsCount: 0,
   },
   getters: {
     catLength: (state) => {
@@ -47,12 +43,28 @@ export default createStore({
     ADD_EVENT(state, event) {
       state.events.push(event);
     },
+    SET_EVENTS(state, events) {
+      state.events = events;
+    },
+    SET_EVENTS_COUNT(state, count) {
+      state.eventsCount = count;
+    },
   },
   actions: {
     createEvent({ commit }, event) {
       EventService.postEvent(event).then(() => {
         commit("ADD_EVENT", event);
       });
+    },
+    fetchEvents({ commit }, { perPage, page }) {
+      EventService.getEvents(perPage, page)
+        .then((response) => {
+          commit("SET_EVENTS", response.data);
+          commit("SET_EVENTS_COUNT", response.headers["x-total-count"]);
+        })
+        .catch((error) => {
+          console.log("There was an error:" + error.response);
+        });
     },
   },
   modules: {},
