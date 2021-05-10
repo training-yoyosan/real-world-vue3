@@ -21,6 +21,7 @@ export default createStore({
     ],
     events: [],
     eventsCount: 0,
+    event: {},
   },
   getters: {
     catLength: (state) => {
@@ -49,6 +50,9 @@ export default createStore({
     SET_EVENTS_COUNT(state, count) {
       state.eventsCount = count;
     },
+    SET_EVENT(state, event) {
+      state.event = event;
+    },
   },
   actions: {
     createEvent({ commit }, event) {
@@ -64,6 +68,15 @@ export default createStore({
         })
         .catch((error) => {
           console.log("There was an error:" + error.response);
+        });
+    },
+    fetchEvent({ commit }, id) {
+      EventService.getEvent(id)
+        .then((response) => {
+          commit("SET_EVENT", response.data);
+        })
+        .catch((error) => {
+          console.log("There was an error:", error.response);
         });
     },
   },
