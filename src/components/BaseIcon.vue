@@ -1,6 +1,6 @@
 <template>
   <div class="icon-wrapper">
-    <svg class="icon" :width="width" :height="height">
+    <svg :height="height" :width="width" class="icon">
       <use v-bind="{ 'xlink:href': '/feather-sprite.svg#' + name }" />
     </svg>
     <slot></slot>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "Icon",
+  name: 'Icon',
   props: {
     name: String,
     width: {
@@ -21,7 +21,7 @@ export default {
       default: 24,
     },
   },
-};
+}
 </script>
 
 <style scoped>

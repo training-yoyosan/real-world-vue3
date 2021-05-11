@@ -11,16 +11,16 @@
         <label>Title</label>
         <input
           v-model="event.title"
-          type="text"
           placeholder="Add an event title"
+          type="text"
         />
       </div>
       <div class="field">
         <label>Description</label>
         <input
           v-model="event.description"
-          type="text"
           placeholder="Add a description"
+          type="text"
         />
       </div>
       <h3>Where is your event?</h3>
@@ -28,8 +28,8 @@
         <label>Location</label>
         <input
           v-model="event.location"
-          type="text"
           placeholder="Add a location"
+          type="text"
         />
       </div>
       <h3>When is your event?</h3>
@@ -43,90 +43,90 @@
           <option v-for="time in times" :key="time">{{ time }}</option>
         </select>
       </div>
-      <input type="submit" class="button -fill-gradient" value="Submit" />
+      <input class="button -fill-gradient" type="submit" value="Submit" />
     </form>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
-import Datepicker from "vuejs3-datepicker";
+import { mapGetters, mapState } from 'vuex'
+import Datepicker from 'vuejs3-datepicker'
 
 export default {
-  name: "EventCreate",
+  name: 'EventCreate',
 
   components: {
     Datepicker,
   },
 
   data() {
-    const times = [];
+    const times = []
     for (let i = 1; i <= 24; i++) {
-      times.push(i + ":00");
+      times.push(i + ':00')
     }
 
     return {
-      ...mapState(["user"]),
+      ...mapState(['user']),
       event: this.createFreshEventObject(),
       times,
-    };
+    }
   },
 
   computed: {
     userName() {
-      return this.$store.state.user.user.name;
+      return this.$store.state.user.user.name
     },
     catLength() {
-      return this.$store.getters.catLength;
+      return this.$store.getters.catLength
     },
     ...mapState({
       userID: (state) => state.user.user.id,
       // can be used for top level state
-      categs: "categories",
+      categs: 'categories',
     }),
-    ...mapState(["categories"]),
+    ...mapState(['categories']),
     getEvent() {
-      return this.$store.getters.getEventById;
+      return this.$store.getters.getEventById
     },
-    ...mapGetters(["getEventById"]),
+    ...mapGetters(['getEventById']),
   },
 
   methods: {
     createFreshEventObject() {
-      const user = this.$store.state.user.user;
+      const user = this.$store.state.user.user
       // Why is this.user undefined? Because it doesn't exist yet
       // console.log(this.user);
-      const id = Math.floor(Math.random() * 10000000);
+      const id = Math.floor(Math.random() * 10000000)
 
       return {
         id,
         user,
-        category: "",
+        category: '',
         organizer: user,
-        title: "",
-        description: "",
-        location: "",
+        title: '',
+        description: '',
+        location: '',
         date: new Date(),
-        time: "",
+        time: '',
         attendees: [],
-      };
+      }
     },
     createEvent() {
       this.$store
-        .dispatch("createEvent", this.event)
+        .dispatch('event/createEvent', this.event)
         .then(() => {
           this.$router.push({
-            name: "EventDetails",
+            name: 'EventDetails',
             params: { id: this.event.id },
-          });
-          this.event = this.createFreshEventObject();
+          })
+          this.event = this.createFreshEventObject()
         })
         .catch(() => {
-          console.log("There was a problem creating your event");
-        });
+          console.log('There was a problem creating your event')
+        })
     },
   },
-};
+}
 </script>
 
 <style scoped>

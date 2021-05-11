@@ -25,11 +25,11 @@
 
 <script>
 // @ is an alias to /src
-import EventCard from "@/components/EventCard";
-import { mapState } from "vuex";
+import EventCard from '@/components/EventCard'
+import { mapState } from 'vuex'
 
 export default {
-  name: "EventList",
+  name: 'EventList',
 
   components: {
     EventCard,
@@ -38,26 +38,26 @@ export default {
   data() {
     return {
       perPage: 3,
-    };
+    }
   },
 
   created() {
-    this.$store.dispatch("fetchEvents", {
+    this.$store.dispatch('event/fetchEvents', {
       perPage: this.perPage,
       page: this.page,
-    });
+    })
   },
 
   computed: {
     page() {
-      return parseInt(this.$route.query.page) || 1;
+      return parseInt(this.$route.query.page) || 1
     },
     hasNextPage() {
-      return this.perPage * this.page < this.event.eventsCount;
+      return this.perPage * this.page < this.event.eventsCount
     },
-    ...mapState(["event", "user"]),
+    ...mapState(['event', 'user']),
   },
-};
+}
 </script>
 
 <style scoped>

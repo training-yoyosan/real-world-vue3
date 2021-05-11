@@ -2,10 +2,10 @@
   <div>
     <div class="event-header">
       <span class="eyebrow"
-        >@{{ event.time }} on {{ event.date ? event.date : "" }}</span
+        >@{{ event.time }} on {{ event.date ? event.date : '' }}</span
       >
       <h1 class="title">{{ event.title }}</h1>
-      <h5>Organized by {{ event.organizer ? event.organizer.name : "" }}</h5>
+      <h5>Organized by {{ event.organizer ? event.organizer.name : '' }}</h5>
       <h5>Category: {{ event.category }}</h5>
     </div>
 
@@ -35,23 +35,25 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from 'vuex'
 
 export default {
-  props: ["id"],
+  props: ['id'],
 
   created() {
-    this.$store.dispatch("fetchEvent", this.id);
+    this.fetchEvent(this.id)
   },
 
   components: {
-    BaseIcon: require("@/components/BaseIcon").default,
+    BaseIcon: require('@/components/BaseIcon').default,
   },
 
   computed: {
     ...mapState({ event: (state) => state.event.event }),
   },
-};
+
+  methods: mapActions('event', ['fetchEvent']),
+}
 </script>
 <style scoped>
 .location {

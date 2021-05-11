@@ -1,11 +1,11 @@
 <template>
   <router-link
-    class="event-link"
     :to="{ name: 'EventDetails', params: { id: event.id } }"
+    class="event-link"
   >
     <div class="event-card -shadow">
       <span class="eyebrow"
-        >@{{ event.time }} on {{ event.date ? event.date : "" }}</span
+        >@{{ event.time }} on {{ event.date ? event.date : '' }}</span
       >
       <h4 class="title">{{ event.title }}</h4>
       <BaseIcon name="users">{{ event.attendees.length }} attending</BaseIcon>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "EventCard",
+  name: 'EventCard',
 
   props: {
     event: {
@@ -25,9 +25,9 @@ export default {
   },
 
   components: {
-    BaseIcon: require("@/components/BaseIcon").default,
+    BaseIcon: require('@/components/BaseIcon').default,
   },
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
