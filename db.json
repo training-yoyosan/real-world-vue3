@@ -157,6 +157,24 @@
       "date": "2021-05-07",
       "time": "12:00",
       "attendees": []
+    },
+    {
+      "id": 3162083,
+      "user": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "title": "Animal welfare #1",
+      "description": "Tra la la la la",
+      "location": "Wanga manga",
+      "date": "2021-05-10T07:09:00.000Z",
+      "time": "12:00",
+      "attendees": []
     }
   ]
 }

@@ -1,9 +1,13 @@
 import { createStore } from "vuex";
-import EventService from "@/services/EventService";
+import * as user from "@/store/modules/user";
+import * as event from "@/store/modules/event";
 
 export default createStore({
+  modules: {
+    user,
+    event,
+  },
   state: {
-    user: { id: "abc123", name: "Gigi Bingi" },
     categories: [
       "sustainability",
       "nature",
@@ -19,9 +23,6 @@ export default createStore({
       { id: 3, text: "...", done: true },
       { id: 4, text: "...", done: false },
     ],
-    events: [],
-    eventsCount: 0,
-    event: {},
   },
   getters: {
     catLength: (state) => {
@@ -36,55 +37,5 @@ export default createStore({
     activeTodosCount2: (state) => {
       return state.todos.filter((todo) => !todo.done).length;
     },
-    getEventById: (state) => (id) => {
-      return state.events.find((event) => event.id === id);
-    },
   },
-  mutations: {
-    ADD_EVENT(state, event) {
-      state.events.push(event);
-    },
-    SET_EVENTS(state, events) {
-      state.events = events;
-    },
-    SET_EVENTS_COUNT(state, count) {
-      state.eventsCount = count;
-    },
-    SET_EVENT(state, event) {
-      state.event = event;
-    },
-  },
-  actions: {
-    createEvent({ commit }, event) {
-      EventService.postEvent(event).then(() => {
-        commit("ADD_EVENT", event);
-      });
-    },
-    fetchEvents({ commit }, { perPage, page }) {
-      EventService.getEvents(perPage, page)
-        .then((response) => {
-          commit("SET_EVENTS", response.data);
-          commit("SET_EVENTS_COUNT", response.headers["x-total-count"]);
-        })
-        .catch((error) => {
-          console.log("There was an error:" + error.response);
-        });
-    },
-    fetchEvent({ commit, getters }, id) {
-      const event = getters.getEventById(id);
-
-      if (event) {
-        commit("SET_EVENT", event);
-      } else {
-        EventService.getEvent(id)
-          .then((response) => {
-            commit("SET_EVENT", response.data);
-          })
-          .catch((error) => {
-            console.log("There was an error:", error.response);
-          });
-      }
-    },
-  },
-  modules: {},
 });

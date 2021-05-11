@@ -74,13 +74,13 @@ export default {
 
   computed: {
     userName() {
-      return this.$store.state.user.name;
+      return this.$store.state.user.user.name;
     },
     catLength() {
       return this.$store.getters.catLength;
     },
     ...mapState({
-      userID: (state) => state.user.id,
+      userID: (state) => state.user.user.id,
       // can be used for top level state
       categs: "categories",
     }),
@@ -93,7 +93,7 @@ export default {
 
   methods: {
     createFreshEventObject() {
-      const user = this.$store.state.user;
+      const user = this.$store.state.user.user;
       // Why is this.user undefined? Because it doesn't exist yet
       // console.log(this.user);
       const id = Math.floor(Math.random() * 10000000);
