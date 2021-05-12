@@ -4,9 +4,20 @@
     |
     <router-link :to="{ name: 'EventCreate' }">Create</router-link>
   </div>
+  <NotificationContainer></NotificationContainer>
   <!-- $route.fullPath reloads the component when the url changes(for pagination) -->
   <router-view :key="$route.fullPath" />
 </template>
+
+<script>
+import NotificationContainer from '@/components/NotificationContainer'
+
+export default {
+  components: {
+    NotificationContainer,
+  },
+}
+</script>
 
 <style>
 html {

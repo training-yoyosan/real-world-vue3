@@ -175,6 +175,60 @@
       "date": "2021-05-10T07:09:00.000Z",
       "time": "12:00",
       "attendees": []
+    },
+    {
+      "id": 956342,
+      "user": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "title": "Test 1234",
+      "description": "",
+      "location": "",
+      "date": "2021-05-12T18:03:56.349Z",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 274536,
+      "user": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "title": "Test 123123",
+      "description": "",
+      "location": "",
+      "date": "2021-05-12T18:05:43.278Z",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 9704159,
+      "user": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "title": "Aaaaaa",
+      "description": "",
+      "location": "",
+      "date": "2021-05-12T18:10:35.856Z",
+      "time": "",
+      "attendees": []
     }
   ]
 }
