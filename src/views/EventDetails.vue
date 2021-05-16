@@ -35,17 +35,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
-  props: ['id'],
+  props: {
+    event: {
+      type: Object,
+      required: true,
+    },
+  },
 
   components: {
     BaseIcon: require('@/components/BaseIcon').default,
-  },
-
-  computed: {
-    ...mapState({ event: (state) => state.event.event }),
   },
 }
 </script>

@@ -15,7 +15,8 @@ const routes = [
     name: 'EventDetails',
     component: () => import('@/views/EventDetails'),
     beforeEnter(routeTo, routeFrom, next) {
-      store.dispatch('event/fetchEvent', routeTo.params.id).then(() => {
+      store.dispatch('event/fetchEvent', routeTo.params.id).then((event) => {
+        routeTo.params.event = event
         next()
       })
     },
