@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EventList from '../views/EventList.vue'
+import NProgress from 'nprogress'
+import store from '@/store/index'
 
 const routes = [
   {
@@ -12,6 +14,11 @@ const routes = [
     props: true, // pass id as prop into the component
     name: 'EventDetails',
     component: () => import('@/views/EventDetails'),
+    beforeEnter(routeTo, routeFrom, next) {
+      store.dispatch('event/fetchEvent', routeTo.params.id).then(() => {
+        next()
+      })
+    },
   },
   {
     path: '/event/create',
@@ -32,6 +39,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+})
+router.beforeEach((routeTo, routeFrom, next) => {
+  NProgress.start()
+  next()
+})
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router
