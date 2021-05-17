@@ -51,6 +51,7 @@
 <script>
 import { mapGetters, mapState } from 'vuex'
 import Datepicker from 'vuejs3-datepicker'
+import NProgress from 'nprogress'
 
 export default {
   name: 'EventCreate',
@@ -115,6 +116,8 @@ export default {
       this.$store
         .dispatch('event/createEvent', this.event)
         .then(() => {
+          NProgress.start()
+
           this.$router.push({
             name: 'EventDetails',
             params: { id: this.event.id },
@@ -123,6 +126,7 @@ export default {
         })
         .catch(() => {
           console.log('There was a problem creating your event')
+          NProgress.done()
         })
     },
   },
