@@ -27,33 +27,43 @@
 // @ is an alias to /src
 import EventCard from '@/components/EventCard'
 import { mapState } from 'vuex'
+import store from '@/store/index'
+
+function getPageEvents(routeTo, next) {
+  const currentPage = parseInt(routeTo.query.page) || 1
+
+  store.dispatch('event/fetchEvents', { page: currentPage }).then(() => {
+    routeTo.params.page = currentPage
+
+    next()
+  })
+}
 
 export default {
   name: 'EventList',
+
+  props: {
+    page: {
+      type: Number,
+      required: true,
+    },
+  },
 
   components: {
     EventCard,
   },
 
-  data() {
-    return {
-      perPage: 3,
-    }
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    getPageEvents(routeTo, next)
   },
 
-  created() {
-    this.$store.dispatch('event/fetchEvents', {
-      perPage: this.perPage,
-      page: this.page,
-    })
+  beforeRouteUpdate(routeTo, routeFrom, next) {
+    getPageEvents(routeTo, next)
   },
 
   computed: {
-    page() {
-      return parseInt(this.$route.query.page) || 1
-    },
     hasNextPage() {
-      return this.perPage * this.page < this.event.eventsCount
+      return this.event.perPage * this.page < this.event.eventsCount
     },
     ...mapState(['event', 'user']),
   },
