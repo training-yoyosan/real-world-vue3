@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import EventList from '../views/EventList.vue'
 import NProgress from 'nprogress'
 import store from '@/store/index'
+import NotFound from '@/views/NotFound'
+import NetworkError from '@/views/NetworkError'
 
 const routes = [
   {
@@ -16,10 +18,19 @@ const routes = [
     name: 'EventDetails',
     component: () => import('@/views/EventDetails'),
     beforeEnter(routeTo, routeFrom, next) {
-      store.dispatch('event/fetchEvent', routeTo.params.id).then((event) => {
-        routeTo.params.event = event
-        next()
-      })
+      store
+        .dispatch('event/fetchEvent', routeTo.params.id)
+        .then((event) => {
+          routeTo.params.event = event
+          next()
+        })
+        .catch((error) => {
+          if (error.response && error.response.status == 404) {
+            next({ name: '404', params: { resource: 'event' } })
+          } else {
+            next({ name: 'NetworkError' })
+          }
+        })
     },
   },
   {
@@ -35,6 +46,17 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  },
+  {
+    path: '/network-error',
+    name: 'NetworkError',
+    component: NetworkError,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    props: true,
+    component: NotFound,
   },
 ]
 
