@@ -7,31 +7,28 @@
         <option v-for="cat in categories" :key="cat">{{ cat }}</option>
       </select>
       <h3>Name & describe your event</h3>
-      <div class="field">
-        <label>Title</label>
-        <input
-          v-model="event.title"
-          placeholder="Add an event title"
-          type="text"
-        />
-      </div>
-      <div class="field">
-        <label>Description</label>
-        <input
-          v-model="event.description"
-          placeholder="Add a description"
-          type="text"
-        />
-      </div>
+      <BaseInput
+        label="Title"
+        placeholder="Add an event title"
+        type="text"
+        v-model="event.title"
+        class="field"
+      />
+      <BaseInput
+        label="Description"
+        placeholder="Add an description"
+        type="text"
+        v-model="event.description"
+        class="field"
+      />
       <h3>Where is your event?</h3>
-      <div class="field">
-        <label>Location</label>
-        <input
-          v-model="event.location"
-          placeholder="Add a location"
-          type="text"
-        />
-      </div>
+      <BaseInput
+        label="Location"
+        placeholder="Add a location"
+        type="text"
+        v-model="event.location"
+        class="field"
+      />
       <h3>When is your event?</h3>
       <div class="field">
         <label>Date</label>
@@ -52,12 +49,14 @@
 import { mapGetters, mapState } from 'vuex'
 import Datepicker from 'vuejs3-datepicker'
 import NProgress from 'nprogress'
+import BaseInput from '@/components/BaseInput'
 
 export default {
   name: 'EventCreate',
 
   components: {
     Datepicker,
+    BaseInput,
   },
 
   data() {
