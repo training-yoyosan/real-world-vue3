@@ -37,7 +37,7 @@
         <datepicker v-model="event.date" inputFormat="yyyy-MM-dd" />
       </div>
       <BaseSelect label="Select a time" :options="times" v-model="event.time" />
-      <input class="button -fill-gradient" type="submit" value="Submit" />
+      <BaseButton type="submit" class="-fill-gradient">Submit</BaseButton>
     </form>
   </div>
 </template>
@@ -48,6 +48,7 @@ import Datepicker from 'vuejs3-datepicker'
 import NProgress from 'nprogress'
 import BaseInput from '@/components/BaseInput'
 import BaseSelect from '@/components/BaseSelect'
+import BaseButton from '@/components/BaseButton'
 
 export default {
   name: 'EventCreate',
@@ -56,6 +57,7 @@ export default {
     Datepicker,
     BaseInput,
     BaseSelect,
+    BaseButton,
   },
 
   data() {

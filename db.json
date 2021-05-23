@@ -265,6 +265,42 @@
       "date": "2021-05-17T16:34:32.466Z",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 3704694,
+      "user": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "title": "Fdafd",
+      "description": "dfa",
+      "location": "Fda",
+      "date": "2021-05-23T16:50:37.363Z",
+      "time": "14:00",
+      "attendees": []
+    },
+    {
+      "id": 3378788,
+      "user": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "category": "",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gigi"
+      },
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "2021-05-23T16:56:26.720Z",
+      "time": "",
+      "attendees": []
     }
   ]
 }
