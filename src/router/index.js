@@ -48,6 +48,10 @@ const routes = [
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
+    path: '/example',
+    component: () => import('@/views/Example.vue'),
+  },
+  {
     path: '/network-error',
     name: 'NetworkError',
     component: NetworkError,
