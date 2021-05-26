@@ -2,7 +2,8 @@
   <div>
     <div class="event-header">
       <span class="eyebrow"
-        >@{{ event.time }} on {{ event.date ? event.date : '' }}</span
+        >@{{ event.time }} on
+        {{ event.date ? $filters.dateFilter(event.date) : '' }}</span
       >
       <h1 class="title">{{ event.title }}</h1>
       <h5>Organized by {{ event.organizer ? event.organizer.name : '' }}</h5>
