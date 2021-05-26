@@ -6,25 +6,12 @@
 </template>
 
 <script>
+import { formFieldMixin } from '@/mixins/formFieldMixin'
+
 export default {
-  inheritAttrs: false,
+  mixins: [formFieldMixin],
 
   name: 'BaseInput',
-
-  props: {
-    label: {
-      type: String,
-      default: '',
-    },
-    modelValue: [String, Number],
-  },
-
-  methods: {
-    updateValue(event) {
-      console.log(event)
-      this.$emit('update:modelValue', event.target.value)
-    },
-  },
 }
 </script>
 

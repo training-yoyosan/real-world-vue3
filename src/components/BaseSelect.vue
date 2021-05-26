@@ -14,8 +14,10 @@
 </template>
 
 <script>
+import { formFieldMixin } from '@/mixins/formFieldMixin'
+
 export default {
-  inheritAttrs: false,
+  mixins: [formFieldMixin],
 
   name: 'BaseSelect',
 
@@ -23,18 +25,6 @@ export default {
     options: {
       type: Array,
       required: true,
-    },
-    label: {
-      type: String,
-      default: '',
-    },
-    modelValue: [String, Number],
-  },
-
-  methods: {
-    updateValue(event) {
-      console.log(event)
-      this.$emit('update:modelValue', event.target.value)
     },
   },
 }
